@@ -1,89 +1,86 @@
 # Czech Republic Economic & Food Affordability Analysis
 
 ## Project Introduction
-This project was conducted for the analytical department of an independent research organization. The primary objective is to analyze the accessibility of basic food items for the general public in the Czech Republic by comparing them with wage developments and broader macroeconomic indicators. 
-
-The findings serve as a data foundation for the press department to be presented at an upcoming conference focused on living standards.
+This project was part of an analytical task focused on public living standards in the Czech Republic. The goal was to look into how accessible basic food items have been for the average person over the years, specifically in relation to wage growth and broader economic trends like GDP. The final outputs were designed as a data foundation for further reporting on living standards.
 
 ## Data Overview
-The analysis utilizes several datasets from the Czech Open Data Portal and global economic indicators:
+I worked with public datasets from the Czech Open Data Portal, combined with global economic statistics:
 
-### Primary Datasets (Czech Republic Focus):
-- **Payroll data:** `czechia_payroll`, `czechia_payroll_calculation`, `czechia_payroll_industry_branch`, `czechia_payroll_unit`, `czechia_payroll_value_type`
-- **Price data:** `czechia_price`, `czechia_price_category`
-- **Regional data:** `czechia_region`, `czechia_district`
+### Primary Datasets (Czech Republic):
+- **Payroll:** `czechia_payroll`, `czechia_payroll_calculation`, `czechia_payroll_industry_branch`, `czechia_payroll_unit`, `czechia_payroll_value_type`
+- **Prices:** `czechia_price`, `czechia_price_category`
+- **Regional:** `czechia_region`, `czechia_district`
 
-### Secondary Datasets (European Comparison):
-- `countries`: Geographical and demographic information.
-- `economies`: GDP, GINI coefficient, and tax burden data.
+### Secondary Datasets (European context):
+- `countries`: General information about states.
+- `economies`: GDP, GINI coefficient, and tax data.
 
 ## Project Deliverables
-To answer the research questions, two final unified tables were created:
-1. **`t_lucie_sulkova_project_sql_primary_final`**: A unified dataset containing payroll and food price data for the Czech Republic, synchronized for comparable periods.
-2. **`t_lucie_sulkova_project_sql_secondary_final`**: A dataset containing GDP, GINI, and population data for additional European countries.
+I created two final tables to serve as the core of the analysis:
+1. **`t_lucie_sulkova_project_sql_primary_final`**: A unified table for the Czech Republic, merging payroll and price data into a comparable timeline.
+2. **`t_lucie_sulkova_project_sql_secondary_final`**: A table with GDP and population metrics for European countries to allow for a broader context.
 
-*Note: No changes were made to the original source tables. All transformations were performed using new SQL views/tables.*
+*Note: I did not modify the original source tables. All logic is contained within the new SQL tables.*
 
-### Research Question 1: Do wages increase in all industries over the years, or do they drop in some?
+---
 
-**Analysis:**
-Contrary to the assumption of a constant upward trend, the data reveals that wage stagnation or decline occurs periodically across various sectors. While the general long-term trend is positive, specific industries experience year-on-year decreases.
+### Research Question 1: Do wages increase in all industries, or do they drop in some?
+
+**The Reality:** It’s a common belief that wages always grow, but the data shows otherwise. While the long-term trend is upward, several sectors hit periods of stagnation or even decline.
 
 **Key Findings:**
-* **Sector Vulnerability:** Wage decreases were observed across a wide spectrum of industries, ranging from "Mining and Quarrying" to "Education" and "Accommodation and Food Service Activities". 
-* **Notable Years:** A significant concentration of wage decreases occurred in **2013**, affecting sectors like "Construction", "Finance and Insurance", and "Information and Communication". This suggests a broader economic impact during that period.
-* **Industry Examples:** For instance, "Mining and Quarrying" showed a recurring pattern of decline (observed in 2009, 2013, 2014, and 2016), indicating high volatility in this specific sector. 
+* **Sector-wide drops:** I found wage decreases in diverse fields, from "Mining" to "Education" or "Hospitality."
+* **The 2013 impact:** This year stands out as a "bad year" for several industries, including Construction and Finance, likely reflecting the economic climate of the time.
+* **Volatility:** Some sectors are more sensitive than others—for example, "Mining and Quarrying" shows recurring drops throughout the period.
 
-**Conclusion:** Wages do not increase continuously in all industries. Economic fluctuations cause temporary drops in individual branches, confirming that wage growth is not uniform across the Czech economy.
+**Conclusion:** Wage growth isn't a given in every sector. Different industries respond to economic cycles differently, and periodic drops are a normal part of the data.
+
 
 ### Research Question 2: How many liters of milk and kilograms of bread can be bought in the first and last comparable periods?
 
 **Analysis:**
-To evaluate the development of purchasing power, we compared the affordability of two staple food items—bread ("Chléb konzumní kmínový") and milk ("Mléko polotučné pasterované")—between the first available year (2006) and the last available year (2018).
+I wanted to see how the average wage actually translates into purchasing power. I compared the years 2006 and 2018 using two common staple items.
 
 **Key Findings:**
-* **Bread Affordability:** The amount of bread one could purchase with an average wage increased from **1,287 kg in 2006** to **1,342 kg in 2018**.
-* **Milk Affordability:** The increase was even more pronounced for milk, where the purchasing power rose from **1,437 liters in 2006** to **1,642 liters in 2018**.
+* **Bread:** In 2006, the average wage bought 1,287 kg; by 2018, it was 1,342 kg.
+* **Milk:** The jump was even clearer, rising from 1,437 to 1,642 liters.
 
-**Conclusion:**
-Despite the fluctuations in food prices and wages over the observed 12-year period, the data indicates a positive trend in purchasing power. The average wage in the Czech Republic grew faster than the prices of these staple food items, allowing citizens to afford a larger quantity of bread and milk in 2018 compared to 2006.
+**Conclusion:** Despite price fluctuations, the average citizen could afford more of these staples in 2018 than in 2006. Wages grew faster than the prices of these specific items.
+
 
 ### Research Question 3: Which food category is increasing in price the slowest?
 
 **Analysis:**
-We analyzed the average year-over-year (YoY) percentage change in prices for all available food categories. The goal was to identify items that demonstrate the lowest price volatility or long-term price stability.
+I calculated the average year-on-year (YoY) percentage change for every food category in the dataset.
 
 **Key Findings:**
-* **Slowest Growth/Deflation:** The categories with the slowest price growth (or even an average decline) are "Cukr krystalový" (-1.92%) and "Rajská jablka červená kulatá" (-0.74%).
-* **Moderate Growth:** Staple items like "Chléb konzumní kmínový" (3.97%) and "Mléko polotučné pasterované" (2.98%) showed steady, moderate growth.
-* **Highest Volatility:** Categories with the highest average annual increase include "Papriky" (7.29%) and "Máslo" (6.67%).
+* **The "Slow" items:** Sugar (-1.92%) and tomatoes (-0.74%) were the most stable items, showing no growth or even slight deflation on average.
+* **The "Fast" items:** Paprika (7.29%) and butter (6.67%) were the most volatile in terms of price growth.
 
-**Conclusion:**
-The price growth across categories is not uniform. While most food items show a positive annual price increase, some categories, such as sugar and tomatoes, have remained stable or even decreased in price on average over the observed period.
+**Conclusion:** Inflation in the food sector is definitely not equal. While staples like bread and milk grew at a moderate pace, other items remained surprisingly stable.
 
-### Research Question 4: Is there a year in which the year-on-year increase in food prices was significantly higher than wage growth (greater than 10%)?
+
+### Research Question 4: Is there a year where food price growth significantly outpaced wage growth (over 10%)?
 
 **Analysis:**
-We compared the year-on-year (YoY) growth of average wages with the average YoY increase in food prices to identify periods where food became significantly less affordable. We specifically monitored the difference to see if it ever exceeded the 10% threshold.
+I compared the YoY growth rates of wages and food prices. I was looking for a "gap" where prices rose by at least 10 percentage points more than wages.
 
 **Key Findings:**
-* **Growth Discrepancies:** While there are years where food prices grew faster than wages (e.g., 2012 or 2013), the difference never reached the 10% mark.
-* **Economic Resilience:** The highest difference was observed in **2013**, where food prices rose by approximately 6.01% while wages declined by 1.56% (a difference of 7.57 percentage points).
-* **Wage Dominance:** Conversely, in years like 2009 or 2018, wage growth (or stability) combined with price deflation/slower growth significantly improved consumer purchasing power.
+* **No critical gap:** The data shows that while prices sometimes rose faster than wages (e.g., 2013), the difference never hit the 10% threshold.
+* **Economic resilience:** Years like 2009 and 2018 actually saw wage growth (or stability) outperforming price growth, which helped maintain purchasing power.
 
-**Conclusion:**
-Based on the analyzed data, there is no year in the observed period (2007–2018) where the year-on-year increase in food prices exceeded wage growth by more than 10%. The Czech economy maintained a balance where food price inflation generally did not outpace wage growth to a critical extent.
+**Conclusion:** Even though prices sometimes climbed faster than paychecks, I didn't find a single year where this gap would be classified as a critical 10% crisis.
 
-### Research Question 5: Does GDP growth relate to wage and food price changes in the same year or the following year?
+
+
+### Research Question 5: Does GDP growth relate to wage and food price changes?
 
 **Analysis:**
-We examined the relationship between GDP growth, wage development, and food price changes. We looked for correlations between these macroeconomic indicators to determine if GDP growth acts as a leading or coincident indicator for living standards.
+This was the most complex part: looking for a link between GDP, wages, and prices.
 
 **Key Findings:**
-* **Non-Linear Relationship:** The data shows that GDP growth does not have a direct, simple linear relationship with wage and price changes in the same year. For example, in 2009, GDP fell sharply (-4.66%), but food prices still showed a growth of 3.16%, while wages declined (-6.58%).
-* **Delayed Reactions:** There is evidence of potential "lagged" effects. In years following strong GDP growth (e.g., 2015 with 5.39% growth), we observed varying trends in the subsequent year (2016), suggesting that the transmission of macroeconomic growth into household income is complex and influenced by other factors.
-* **Sensitivity:** Wages appear more sensitive to GDP fluctuations than food prices, which are often influenced by global market factors, harvest seasons, and regulatory changes rather than purely domestic economic output.
+* **No simple link:** The numbers don't show a direct line between GDP growth and household income. In 2009, GDP dropped, but food prices were still fluctuating.
+* **Delayed effects:** There is no "instant" reaction. Changes in GDP don't automatically mean immediate wage hikes or price shifts the next year.
+* **Complex factors:** Wages seem more tied to GDP than food prices are, but both are heavily influenced by global factors outside of just the domestic GDP.
 
-**Conclusion:**
-There is no strong evidence of a simple, immediate correlation between GDP growth and the cost of basic food items or wage levels in the same year. The economic environment in the Czech Republic during the observed period indicates that while GDP is a key indicator of national prosperity, its impact on the daily purchasing power of citizens is mediated by many other structural and global economic variables.
-
+**Conclusion:** GDP is a good indicator of national health, but it’s too broad to explain short-term changes in people's wallets. Household purchasing power is clearly shaped by much more than just the annual GDP growth rate.
