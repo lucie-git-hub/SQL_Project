@@ -84,3 +84,14 @@ This was the most complex part: looking for a link between GDP, wages, and price
 * **Complex factors:** Wages seem more tied to GDP than food prices are, but both are heavily influenced by global factors outside of just the domestic GDP.
 
 **Conclusion:** GDP is a good indicator of national health, but it’s too broad to explain short-term changes in people's wallets. Household purchasing power is clearly shaped by much more than just the annual GDP growth rate.
+
+
+---
+
+## How to Use This Repository
+This repository contains the SQL logic used for the economic analysis. You can replicate the results by following these steps:
+
+1. **Database Setup:** Ensure you have access to a PostgreSQL database where the source tables (`czechia_payroll`, `czechia_price`, `countries`, `economies`, etc.) are available.
+2. **Data Preparation:** First, run the script for the primary and secondary tables (`t_lucie_sulkova_project_sql_primary_final` and `t_lucie_sulkova_project_sql_secondary_final`). This creates the unified datasets used for all further analysis.
+3. **Running Queries:** Once the primary and secondary tables are generated, you can execute the individual SQL scripts for each research question (found in the `/sql` folder).
+4. **Customization:** If you want to use this for a different period or region, simply adjust the `WHERE` clauses in the respective scripts.
