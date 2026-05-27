@@ -18,7 +18,7 @@ cte_first_last_price AS (
         data_year, 
         avg_price 
     FROM t_lucie_sulkova_project_sql_primary_final
-    WHERE food_category IN ('Mléko polotučné pasterované', 'Chléb konzumní kmínový') -- Milk and Bread
+    WHERE food_category IN ('Mléko polotučné pasterované', 'Chléb konzumní kmínový')
       AND data_year IN (2006, 2018)
 ) 
 SELECT 
