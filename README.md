@@ -93,5 +93,5 @@ This repository contains the SQL logic used for the economic analysis. You can r
 
 1. **Database Setup:** Ensure you have access to a PostgreSQL database where the source tables (`czechia_payroll`, `czechia_price`, `countries`, `economies`, etc.) are available.
 2. **Data Preparation:** First, run the script for the primary and secondary tables (`t_lucie_sulkova_project_sql_primary_final` and `t_lucie_sulkova_project_sql_secondary_final`). This creates the unified datasets used for all further analysis.
-3. **Running Queries:** Once the primary and secondary tables are generated, you can execute the individual SQL scripts for each research question (found in the `/sql` folder).
+3. **Running Queries:** Once the primary and secondary tables are generated, you can execute the individual SQL scripts for each research question (found in the `/main` folder).
 4. **Customization:** If you want to use this for a different period or region, simply adjust the `WHERE` clauses in the respective scripts.
